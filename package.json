@@ -1,26 +1,31 @@
 {
-  "name": "mern-server",
+  "name": "21deepThoughts",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
+  "dependencies": {
+    "apollo-server-express": "^2.18.2",
+    "if-env": "^1.0.4",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node server.js",
-    "watch": "nodemon",
-    "seed": "node seeders/seeds.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"if-env NODE_ENV=roduction && npm run start:prod || npm run start:dev",
+    "start:prod": "cd server && npm start",
+    "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NGDino/deep-thoughts.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "apollo-server-express": "^2.18.2",
-    "bcrypt": "^4.0.1",
-    "express": "^4.17.1",
-    "faker": "^4.1.0",
-    "jsonwebtoken": "^8.5.1",
-    "moment": "^2.24.0",
-    "mongoose": "^5.9.9"
+  "bugs": {
+    "url": "https://github.com/NGDino/deep-thoughts/issues"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.3"
-  }
+  "homepage": "https://github.com/NGDino/deep-thoughts#readme"
 }
