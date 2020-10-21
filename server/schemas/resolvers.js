@@ -91,7 +91,7 @@ const resolvers = {
             if(context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: {friend: friendId } },
+                    { $addToSet: {friends: friendId } },
                     {new: true }
                 ).populate('friends');
 
