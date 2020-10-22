@@ -4,7 +4,7 @@ const path = require('path');
 const { ApolloServer } = require('apollo-server-express')
 //import typeDefs and resolvers
 const { typeDefs, resolvers } = require('./schemas')
-const db = require('./schemas/config/connection');
+const db = require('./config/connection');
 
 const { authMiddleware } = require('./utils/auth')
 
@@ -25,7 +25,7 @@ app.use(express.json());
 
 //serve up static assets
 if(process.env.NODE_ENV === 'production'){
-  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.use(express.static(path.join(__dirname, '../)));
 }
 
 app.get('*', (req,res) => {
